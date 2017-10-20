@@ -16,7 +16,7 @@
   <email>slusarz@horde.org</email>
   <active>yes</active>
  </lead>
- <date>2017-10-17</date>
+ <date>2017-10-20</date>
  <version>
   <release>2.1.4</release>
   <api>2.1.0</api>
@@ -46,7 +46,6 @@
       <file name="AllTests.php" role="test" />
       <file name="AspellTest.php" role="test" />
       <file name="bootstrap.php" role="test" />
-      <file name="phpunit.xml" role="test" />
      </dir> <!-- /test/Horde/SpellChecker -->
     </dir> <!-- /test/Horde -->
    </dir> <!-- /test -->
@@ -88,7 +87,6 @@
    <install as="Horde/SpellChecker/AllTests.php" name="test/Horde/SpellChecker/AllTests.php" />
    <install as="Horde/SpellChecker/AspellTest.php" name="test/Horde/SpellChecker/AspellTest.php" />
    <install as="Horde/SpellChecker/bootstrap.php" name="test/Horde/SpellChecker/bootstrap.php" />
-   <install as="Horde/SpellChecker/phpunit.xml" name="test/Horde/SpellChecker/phpunit.xml" />
   </filelist>
  </phprelease>
  <changelog>
@@ -314,7 +312,7 @@ Initial Release.
    <stability>
     <release>stable</release>
     <api>stable</api></stability>
-   <date>2017-10-17</date>
+   <date>2017-10-20</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
 * 
