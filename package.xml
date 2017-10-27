@@ -16,7 +16,7 @@
   <email>slusarz@horde.org</email>
   <active>yes</active>
  </lead>
- <date>2017-10-20</date>
+ <date>2017-10-27</date>
  <version>
   <release>2.1.4</release>
   <api>2.1.0</api>
@@ -30,6 +30,13 @@
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
+   <dir name="doc">
+    <dir name="Horde">
+     <dir name="SpellChecker">
+      <file name="CHANGES" role="doc" />
+     </dir> <!-- /doc/Horde/SpellChecker -->
+    </dir> <!-- /doc/Horde -->
+   </dir> <!-- /doc -->
    <dir name="lib">
     <dir name="Horde">
      <dir name="SpellChecker">
@@ -79,6 +86,7 @@
  </dependencies>
  <phprelease>
   <filelist>
+   <install as="CHANGES" name="doc/Horde/SpellChecker/CHANGES" />
    <install as="Horde/SpellChecker.php" name="lib/Horde/SpellChecker.php" />
    <install as="Horde/SpellChecker/Aspell.php" name="lib/Horde/SpellChecker/Aspell.php" />
    <install as="Horde/SpellChecker/Exception.php" name="lib/Horde/SpellChecker/Exception.php" />
@@ -311,7 +319,7 @@
    <stability>
     <release>stable</release>
     <api>stable</api></stability>
-   <date>2017-10-20</date>
+   <date>2017-10-27</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
    </notes>
