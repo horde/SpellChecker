@@ -54,7 +54,6 @@
       <file name="AllTests.php" role="test" />
       <file name="AspellTest.php" role="test" />
       <file name="bootstrap.php" role="test" />
-      <file name="phpunit.xml" role="test" />
      </dir> <!-- /test/Horde/SpellChecker -->
     </dir> <!-- /test/Horde -->
    </dir> <!-- /test -->
@@ -96,8 +95,7 @@
    <install as="Horde/SpellChecker/AllTests.php" name="test/Horde/SpellChecker/AllTests.php" />
    <install as="Horde/SpellChecker/AspellTest.php" name="test/Horde/SpellChecker/AspellTest.php" />
    <install as="Horde/SpellChecker/bootstrap.php" name="test/Horde/SpellChecker/bootstrap.php" />
-   <install as="Horde/SpellChecker/phpunit.xml" name="test/Horde/SpellChecker/phpunit.xml" />
-  </filelist>
+   </filelist>
  </phprelease>
  <changelog>
   <release>
