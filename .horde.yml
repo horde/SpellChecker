@@ -2,7 +2,7 @@
 id: SpellChecker
 name: SpellChecker
 full: Spellchecking library
-description: Unified spellchecking API.
+description: A library that provides an unified spellchecking API.
 list: dev
 type: library
 homepage: https://www.horde.org/libraries/Horde_SpellChecker
