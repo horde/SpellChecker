@@ -34,9 +34,6 @@
     "autoload": {
         "psr-0": {
             "Horde_SpellChecker": "lib/"
-        },
-        "psr-4": {
-            "Horde\\SpellChecker\\": "src/"
         }
     }
 }
