@@ -19,11 +19,11 @@
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package  SpellChecker
  */
-class Horde_SpellChecker_AspellTest extends PHPUnit_Framework_TestCase
+class Horde_SpellChecker_AspellTest extends Horde_Test_Case
 {
     protected $aspell;
 
-    public function setUp()
+    public function setUp(): void
     {
         $aspell = trim(`which aspell`);
         if (!is_executable($aspell)) {
