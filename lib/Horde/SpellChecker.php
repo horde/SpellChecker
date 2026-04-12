@@ -7,10 +7,12 @@
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
  *
  * @category  Horde
- * @copyright 2005-2017 Horde LLC
+ * @copyright 2005-2026 Horde LLC
  * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package   SpellChecker
  */
+
+use Horde\SpellChecker\SuggestMode;
 
 /**
  * Provides a unified spellchecker API.
@@ -18,7 +20,7 @@
  * @author    Chuck Hagenbuch <chuck@horde.org>
  * @author    Michael Slusarz <slusarz@horde.org>
  * @category  Horde
- * @copyright 2005-2017 Horde LLC
+ * @copyright 2005-2026 Horde LLC
  * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package   SpellChecker
  */
@@ -29,8 +31,6 @@ abstract class Horde_SpellChecker
     public const SUGGEST_SLOW = 3;
 
     /**
-     * Configuration parameters.
-     *
      * @var array
      */
     protected $_params = [
@@ -43,17 +43,7 @@ abstract class Horde_SpellChecker
     ];
 
     /**
-     * Attempts to return a concrete Horde_SpellChecker instance based on
-     * $driver.
-     *
      * @deprecated
-     *
-     * @param string $driver  The type of concrete subclass to return.
-     * @param array $params   A hash containing any additional configuration
-     *                        or connection parameters a subclass might need.
-     *
-     * @return Horde_SpellChecker  The newly created instance.
-     * @throws Horde_Exception
      */
     public static function factory($driver, $params = [])
     {
@@ -65,55 +55,29 @@ abstract class Horde_SpellChecker
         throw new Horde_Exception('Driver ' . $driver . ' not found');
     }
 
-    /**
-     * Constructor.
-     *
-     * @param array $params  TODO
-     */
     public function __construct(array $params = [])
     {
         $this->setParams($params);
     }
 
-    /**
-     * Set configuration parmeters.
-     *
-     * @param array $params  Parameters to set.
-     */
     public function setParams($params)
     {
         $this->_params = array_merge($this->_params, $params);
     }
 
     /**
-     * Perform spellcheck.
-     *
-     * @param string $text  Text to spellcheck.
-     *
-     * @return array  TODO
-     * @throws Horde_SpellChecker_Exception
+     * @return array
      */
     abstract public function spellCheck($text);
 
     /**
-     * TODO
-     *
-     * @param string $text  TODO
-     *
-     * @return array  TODO
+     * @return array
      */
     protected function _getWords($text)
     {
         return array_keys(array_flip(preg_split('/[\s\[\]]+/s', $text, -1, PREG_SPLIT_NO_EMPTY)));
     }
 
-    /**
-     * Determine if a word exists in the local dictionary.
-     *
-     * @param string $word  The word to check.
-     *
-     * @return boolean  True if the word appears in the local dictionary.
-     */
     protected function _inLocalDictionary($word)
     {
         return empty($this->_params['localDict'])
@@ -121,4 +85,13 @@ abstract class Horde_SpellChecker
             : in_array(Horde_String::lower($word, true, 'UTF-8'), $this->_params['localDict']);
     }
 
+    protected function resolveSuggestMode(): SuggestMode
+    {
+        $mode = $this->_params['suggestMode'] ?? self::SUGGEST_FAST;
+        if ($mode instanceof SuggestMode) {
+            return $mode;
+        }
+
+        return SuggestMode::from((int) $mode);
+    }
 }
