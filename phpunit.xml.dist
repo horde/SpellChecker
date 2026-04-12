@@ -1,13 +1,17 @@
 <?xml version="1.0"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="test/Horde/SpellChecker/bootstrap.php" colors="true" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
-  <coverage>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="vendor/autoload.php" colors="true" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.5/phpunit.xsd">
+  <source>
     <include>
       <directory suffix=".php">lib</directory>
+      <directory suffix=".php">src</directory>
     </include>
-  </coverage>
+  </source>
   <testsuites>
-    <testsuite name="horde/SpellChecker">
-      <directory>test</directory>
+    <testsuite name="unit">
+      <directory>test/unit</directory>
+    </testsuite>
+    <testsuite name="integration">
+      <directory>test/integration</directory>
     </testsuite>
   </testsuites>
 </phpunit>
