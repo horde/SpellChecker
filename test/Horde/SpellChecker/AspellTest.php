@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2012-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2012-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -9,7 +10,9 @@
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package  SpellChecker
  */
+
 namespace Horde\SpellChecker;
+
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -20,6 +23,7 @@ use PHPUnit\Framework\TestCase;
  * @ignore
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package  SpellChecker
+ * @coversNothing
  */
 class AspellTest extends TestCase
 {
@@ -36,9 +40,9 @@ class AspellTest extends TestCase
             $this->markTestSkipped('No aspell/ispell binary found.');
         }
 
-        $this->aspell = new Horde_SpellChecker_Aspell(array(
-            'path' => $aspell
-        ));
+        $this->aspell = new Horde_SpellChecker_Aspell([
+            'path' => $aspell,
+        ]);
     }
 
     public function testAspell()
@@ -49,7 +53,7 @@ class AspellTest extends TestCase
         $this->assertNotEmpty($res['bad']);
         $this->assertEquals(
             $res['bad'],
-            array('tet', 'mispeled')
+            ['tet', 'mispeled']
         );
         $this->assertNotEmpty($res['suggestions']);
         $this->assertNotEmpty($res['suggestions'][0]);

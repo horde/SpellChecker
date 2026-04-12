@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2005-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2005-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -27,21 +28,21 @@ class Horde_SpellChecker_Aspell extends Horde_SpellChecker
      * @param array $args  Additional arguments:
      *   - path: (string) Path to the aspell binary.
      */
-    public function __construct(array $args = array())
+    public function __construct(array $args = [])
     {
-        parent::__construct(array_merge(array(
-            'path' => 'aspell'
-        ), $args));
+        parent::__construct(array_merge([
+            'path' => 'aspell',
+        ], $args));
     }
 
     /**
      */
     public function spellCheck($text)
     {
-        $ret = array(
-            'bad' => array(),
-            'suggestions' => array()
-        );
+        $ret = [
+            'bad' => [],
+            'suggestions' => [],
+        ];
 
         if ($this->_params['html']) {
             $input = strtr($text, "\n", ' ');
@@ -54,11 +55,11 @@ class Horde_SpellChecker_Aspell extends Horde_SpellChecker
         }
 
         // Descriptor array.
-        $descspec = array(
-            0 => array('pipe', 'r'),
-            1 => array('pipe', 'w'),
-            2 => array('pipe', 'w')
-        );
+        $descspec = [
+            0 => ['pipe', 'r'],
+            1 => ['pipe', 'w'],
+            2 => ['pipe', 'w'],
+        ];
 
         $process = proc_open($this->_cmd(), $descspec, $pipes);
         if (!is_resource($process)) {
@@ -97,25 +98,25 @@ class Horde_SpellChecker_Aspell extends Horde_SpellChecker
                 continue;
             }
 
-            @list(,$word,) = explode(' ', $line, 3);
+            @[, $word, ] = explode(' ', $line, 3);
 
-            if ($this->_inLocalDictionary($word) ||
-                in_array($word, $ret['bad'])) {
+            if ($this->_inLocalDictionary($word)
+                || in_array($word, $ret['bad'])) {
                 continue;
             }
 
             switch ($line[0]) {
-            case '#':
-                // Misspelling with no suggestions.
-                $ret['bad'][] = $word;
-                $ret['suggestions'][] = array();
-                break;
+                case '#':
+                    // Misspelling with no suggestions.
+                    $ret['bad'][] = $word;
+                    $ret['suggestions'][] = [];
+                    break;
 
-            case '&':
-                // Suggestions.
-                $ret['bad'][] = $word;
-                $ret['suggestions'][] = array_slice(explode(', ', substr($line, strpos($line, ':') + 2)), 0, $this->_params['maxSuggestions']);
-                break;
+                case '&':
+                    // Suggestions.
+                    $ret['bad'][] = $word;
+                    $ret['suggestions'][] = array_slice(explode(', ', substr($line, strpos($line, ':') + 2)), 0, $this->_params['maxSuggestions']);
+                    break;
             }
         }
 
@@ -129,19 +130,19 @@ class Horde_SpellChecker_Aspell extends Horde_SpellChecker
      */
     protected function _cmd()
     {
-        $args = array('-a', '--encoding=UTF-8');
+        $args = ['-a', '--encoding=UTF-8'];
 
         switch ($this->_params['suggestMode']) {
-        case self::SUGGEST_FAST:
-            $args[] = '--sug-mode=fast';
-            break;
+            case self::SUGGEST_FAST:
+                $args[] = '--sug-mode=fast';
+                break;
 
-        case self::SUGGEST_SLOW:
-            $args[] = '--sug-mode=bad-spellers';
-            break;
+            case self::SUGGEST_SLOW:
+                $args[] = '--sug-mode=bad-spellers';
+                break;
 
-        default:
-            $args[] = '--sug-mode=normal';
+            default:
+                $args[] = '--sug-mode=normal';
         }
 
         $args[] = '--lang=' . escapeshellarg($this->_params['locale']);
@@ -152,8 +153,8 @@ class Horde_SpellChecker_Aspell extends Horde_SpellChecker
             $args[] = '--rem-html-check=alt';
         }
 
-        return escapeshellcmd($this->_params['path']) . ' ' .
-               implode(' ', $args);
+        return escapeshellcmd($this->_params['path']) . ' '
+               . implode(' ', $args);
     }
 
 }
