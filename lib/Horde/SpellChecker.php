@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2005-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2005-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -23,23 +24,23 @@
  */
 abstract class Horde_SpellChecker
 {
-    const SUGGEST_FAST = 1;
-    const SUGGEST_NORMAL = 2;
-    const SUGGEST_SLOW = 3;
+    public const SUGGEST_FAST = 1;
+    public const SUGGEST_NORMAL = 2;
+    public const SUGGEST_SLOW = 3;
 
     /**
      * Configuration parameters.
      *
      * @var array
      */
-    protected $_params = array(
+    protected $_params = [
         'html' => false,
         'locale' => 'en',
-        'localDict' => array(),
+        'localDict' => [],
         'maxSuggestions' => 10,
         'minLength' => 3,
-        'suggestMode' => self::SUGGEST_FAST
-    );
+        'suggestMode' => self::SUGGEST_FAST,
+    ];
 
     /**
      * Attempts to return a concrete Horde_SpellChecker instance based on
@@ -54,7 +55,7 @@ abstract class Horde_SpellChecker
      * @return Horde_SpellChecker  The newly created instance.
      * @throws Horde_Exception
      */
-    public static function factory($driver, $params = array())
+    public static function factory($driver, $params = [])
     {
         $class = 'Horde_SpellChecker_' . Horde_String::ucfirst(basename($driver));
         if (class_exists($class)) {
@@ -69,7 +70,7 @@ abstract class Horde_SpellChecker
      *
      * @param array $params  TODO
      */
-    public function __construct(array $params = array())
+    public function __construct(array $params = [])
     {
         $this->setParams($params);
     }
