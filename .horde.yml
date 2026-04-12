@@ -8,6 +8,12 @@ type: library
 homepage: https://www.horde.org/libraries/Horde_SpellChecker
 authors:
   -
+    name: Ralf Lang
+    user: rlang
+    email: ralf.lang@ralf-lang.de
+    active: true
+    role: maintainer
+  -
     name: Chuck Hagenbuch
     user: chuck
     email: chuck@horde.org
@@ -30,7 +36,14 @@ license:
   uri: http://www.horde.org/licenses/lgpl21
 dependencies:
   required:
-    php: ^7.4 || ^8
+    php: ^8.1
     composer:
       horde/exception: ^3
       horde/util: ^3
+keywords:
+  - aspell
+  - spelling
+vendor: horde
+quality:
+  phpstan:
+    level: 5
