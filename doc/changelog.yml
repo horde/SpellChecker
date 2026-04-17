@@ -9,7 +9,6 @@
     identifier: LGPL-2.1
     uri: http://www.horde.org/licenses/lgpl21
   notes: |+
-    
 3.0.0alpha4:
   api: 3.0.0alpha1
   state:
@@ -52,6 +51,27 @@
     identifier: LGPL-2.1
     uri: http://www.horde.org/licenses/lgpl21
   notes: ~
+3.0.0-beta1:
+  api: 3.0.0-beta1
+  state:
+    release: beta
+    api: beta
+  date: 2026-04-17
+  license:
+    identifier: LGPL-2.1-only
+    uri: https://spdx.org/licenses/LGPL-2.1-only.html
+  notes: |-
+    chore: metadata .gitignore .horde.yml
+    test: Modernize unit test suite and provide a PSR-4 modernized, typed interface
+    style: php-cs-fixer
+    Development mode for SpellChecker-3.0.0alpha5
+    Released SpellChecker-3.0.0alpha4
+    Update metadata and workflows for PHP 8 support
+    Add CI job for satis repo update
+    no errors, ci.yml added, bootstrap adapted
+    no errors left
+    WIP one test skipped
+    Development mode for SpellChecker-3.0.0alpha5
 2.1.3:
   api: 2.1.0
   state:
@@ -111,17 +131,6 @@
     uri: http://www.horde.org/licenses/lgpl21
   notes: |
     [jan] Re-packaged 2.0.0 release.
-2.0.0:
-  api: 1.0.0
-  state:
-    release: stable
-    api: stable
-  date: 2012-10-30
-  license:
-    identifier: LGPL-2.1
-    uri: http://www.horde.org/licenses/lgpl21
-  notes: |
-    First stable release for Horde 5.
 2.0.0beta1:
   api: 1.0.0
   state:
@@ -144,6 +153,17 @@
     uri: http://www.horde.org/licenses/lgpl21
   notes: |
     First alpha release for Horde 5.
+2.0.0:
+  api: 1.0.0
+  state:
+    release: stable
+    api: stable
+  date: 2012-10-30
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl21
+  notes: |
+    First stable release for Horde 5.
 1.0.1:
   api: 1.0.0
   state:
@@ -155,17 +175,17 @@
     uri: http://www.horde.org/licenses/lgpl21
   notes: |
     [rla] Add license file.
-1.0.0:
+1.0.0beta1:
   api: 1.0.0
   state:
-    release: stable
-    api: stable
-  date: 2011-04-06
+    release: beta
+    api: beta
+  date: 2011-03-16
   license:
     identifier: LGPL-2.1
     uri: http://www.horde.org/licenses/lgpl21
   notes: |
-    First stable release for Horde 4.
+    First beta release for Horde 4.
 1.0.0RC2:
   api: 1.0.0
   state:
@@ -188,17 +208,17 @@
     uri: http://www.horde.org/licenses/lgpl21
   notes: |
     First release candidate for Horde 4.
-1.0.0beta1:
+1.0.0:
   api: 1.0.0
   state:
-    release: beta
-    api: beta
-  date: 2011-03-16
+    release: stable
+    api: stable
+  date: 2011-04-06
   license:
     identifier: LGPL-2.1
     uri: http://www.horde.org/licenses/lgpl21
   notes: |
-    First beta release for Horde 4.
+    First stable release for Horde 4.
 0.0.2:
   api: 0.0.2
   state:

@@ -1,11 +1,15 @@
 {
-    "minimum-stability": "dev",
     "name": "horde/spellchecker",
     "description": "Spellchecking library",
     "type": "library",
     "homepage": "https://www.horde.org/libraries/Horde_SpellChecker",
     "license": "LGPL-2.1-only",
     "authors": [
+        {
+            "name": "Ralf Lang",
+            "email": "ralf.lang@ralf-lang.de",
+            "role": "maintainer"
+        },
         {
             "name": "Chuck Hagenbuch",
             "email": "chuck@horde.org",
@@ -17,12 +21,19 @@
             "role": "lead"
         }
     ],
-    "time": "2022-11-05",
+    "keywords": [
+        "aspell",
+        "spelling"
+    ],
+    "time": "2026-04-17",
+    "repositories": [],
     "require": {
-        "php": "^7.4 || ^8",
+        "php": "^8.1",
         "horde/exception": "^3 || dev-FRAMEWORK_6_0",
         "horde/util": "^3 || dev-FRAMEWORK_6_0"
     },
+    "require-dev": {},
+    "suggest": {},
     "autoload": {
         "psr-0": {
             "Horde_SpellChecker": "lib/"
@@ -33,13 +44,15 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Horde\\SpellChecker\\Test\\Unit\\": "test/unit/",
-            "Horde\\SpellChecker\\Test\\Integration\\": "test/integration/"
+            "Horde\\SpellChecker\\Test\\": "test/"
         }
     },
     "config": {
-        "allow-plugins": {
-            "horde/horde-installer-plugin": true
+        "allow-plugins": {}
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-FRAMEWORK_6_0": "3.x-dev"
         }
     }
 }
