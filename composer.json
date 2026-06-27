@@ -25,7 +25,7 @@
         "aspell",
         "spelling"
     ],
-    "time": "2026-04-17",
+    "time": "2026-06-27",
     "repositories": [],
     "require": {
         "php": "^8.1",
